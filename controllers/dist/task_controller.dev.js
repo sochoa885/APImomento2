@@ -109,6 +109,14 @@ app.put('/task/:id', function (req, res) {
       });
     }
 
+    if (!taskDB) {
+      return res.json({
+        'success': false,
+        'message': 'Task doesnt found',
+        'data': []
+      });
+    }
+
     return res.json({
       'success': true,
       'message': 'Task updated successfully',
